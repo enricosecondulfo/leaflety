@@ -125,6 +125,46 @@
           }
         }
       }
+    },
+    "leaflety-lib": {
+      "root": "projects/leaflety-lib",
+      "sourceRoot": "projects/leaflety-lib/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/leaflety-lib/tsconfig.lib.json",
+            "project": "projects/leaflety-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/leaflety-lib/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/leaflety-lib/src/test.ts",
+            "tsConfig": "projects/leaflety-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/leaflety-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/leaflety-lib/tsconfig.lib.json",
+              "projects/leaflety-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "leaflety"
